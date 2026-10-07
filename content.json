@@ -1,0 +1,529 @@
+{
+  "site": {
+    "title": "Ian Poston | Resume",
+    "heading": "Ian Poston | Web Developer",
+    "avatar": {
+      "url": "https://avatars0.githubusercontent.com/u/8107942?v=3&s=460",
+      "alt": "ian poston"
+    },
+    "tabs": {
+      "about": "About",
+      "resume": "Resume",
+      "contact": "Contact"
+    },
+    "email": {
+      "url": "mailto:ian@ianposton.com",
+      "label": "Email Ian"
+    },
+    "social": [
+      {
+        "url": "https://twitter.com/intent/follow?screen_name=ianposton&commit=Log%20in%20and%20follow%20%40ianposton&session%5Busername_or_email%5D=ianposton&tw_p=followbutton®ion=follow_link",
+        "icon": "twitter",
+        "label": "Twitter"
+      },
+      {
+        "url": "https://www.facebook.com/iangposton",
+        "icon": "facebook",
+        "label": "Facebook"
+      },
+      {
+        "url": "https://plus.google.com/u/0/107605687288285310751",
+        "icon": "gplus",
+        "label": "Google Plus"
+      },
+      {
+        "url": "https://github.com/iposton",
+        "icon": "github",
+        "label": "Git Hub"
+      },
+      {
+        "url": "https://www.linkedin.com/in/ian-poston-4a8a00a9",
+        "icon": "linkedin",
+        "label": "Linkedin"
+      },
+      {
+        "url": "https://www.instagram.com/iposton/",
+        "icon": "insta",
+        "label": "Instagram"
+      }
+    ]
+  },
+  "about": {
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "I like to enhance html with Angular and JavaScript. I can dig into a task, resolve issues and optimize performance."
+      },
+      {
+        "type": "accordion",
+        "title": "I have worked on these Angular apps 2016 - 2019",
+        "items": [
+          [
+            {
+              "text": "Nov 16, 2016 - "
+            },
+            {
+              "text": "My Lessons",
+              "url": "https://my-lessons.herokuapp.com/"
+            }
+          ],
+          [
+            {
+              "text": "Feb 28, 2017 - "
+            },
+            {
+              "text": "Url Manager",
+              "url": "https://my-url-manager.herokuapp.com/"
+            }
+          ],
+          [
+            {
+              "text": "March 28, 2017 - "
+            },
+            {
+              "text": "Senators and Votes",
+              "url": "https://senators-votes.herokuapp.com/"
+            }
+          ],
+          [
+            {
+              "text": "May 2, 2017 - "
+            },
+            {
+              "text": "Senators and Votes US Map",
+              "url": "https://senator-votes-map.herokuapp.com/"
+            }
+          ],
+          [
+            {
+              "text": "June 11, 2017 - "
+            },
+            {
+              "text": "Time Line",
+              "url": "https://timeline-angularjs.herokuapp.com/"
+            }
+          ],
+          [
+            {
+              "text": "June 1, 2018 - "
+            },
+            {
+              "text": "Free Fashion Internships",
+              "url": "https://www.freefashioninternships.com/"
+            }
+          ],
+          [
+            {
+              "text": "March 15, 2019 - "
+            },
+            {
+              "text": "Gravity AI",
+              "url": "https://app.gx-staging.com/welcome"
+            }
+          ],
+          [
+            {
+              "text": "August 21, 2019 - "
+            },
+            {
+              "text": "Fantasy Sports Resource",
+              "url": "https://fantasy-sports-resource.herokuapp.com/all-sports"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "I worked for a web development agency starting in June 2018. I maintained Angular apps, connected fashion interns with companies seeking interns and modernized an outdated finacial app using Angular's reactive form approach."
+      },
+      {
+        "type": "paragraph",
+        "text": "I am seeking my next web development oppurtunity. I am a strong believer in detailed tasks broken into steps, I prefer communicating progress to avoid spinning wheels and I like to deliver optimized solutions to outstanding bugs."
+      },
+      {
+        "type": "paragraph",
+        "text": "I like to focus on learning Angular, JavaScript and TypeScript. If this is your thing too check out these links."
+      },
+      {
+        "type": "accordion",
+        "title": "Learning frontend web development? Check out these links.",
+        "items": [
+          [
+            {
+              "text": "https://www.freecodecamp.org/news/lets-explore-slice-splice-spread-syntax-in-javascript-e242a6f21e60/",
+              "url": "https://www.freecodecamp.org/news/lets-explore-slice-splice-spread-syntax-in-javascript-e242a6f21e60/"
+            }
+          ],
+          [
+            {
+              "text": "https://devinduct.com/blogpost/26/8-useful-javascript-tricks",
+              "url": "https://devinduct.com/blogpost/26/8-useful-javascript-tricks"
+            }
+          ],
+          [
+            {
+              "text": "https://medium.com/swlh/turning-an-angular-app-into-a-pwa-957010736699",
+              "url": "https://medium.com/swlh/turning-an-angular-app-into-a-pwa-957010736699"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Working on the UI of an app is a great privilege. This is a fun activity for me. I enjoy putting the extra effort into my work to make me a reliable team member."
+      },
+      {
+        "type": "accordion",
+        "title": "What do I like about working on UI's?",
+        "items": [
+          [
+            {
+              "text": " Creating a simple interface which will avoid annoying the customer."
+            }
+          ],
+          [
+            {
+              "text": " Provide smart calculations in the client in real-time."
+            }
+          ],
+          [
+            {
+              "text": " Blogging about my experience with Angular, JavaScript, Firebase and TypeScript to help other dev's learn."
+            }
+          ],
+          [
+            {
+              "text": " Using all the fun tricks that come with Angular and learning how to make better web components."
+            }
+          ],
+          [
+            {
+              "text": " Getting a sense of accomplishment just like making a picture frame with my bare hands."
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "resume": {
+    "heading": "Resume | September 5 , 2019",
+    "intro": "I am a skilled coding tactician. Finding the appropriate solution is always better than using tape.",
+    "navigation_title": "Explore",
+    "navigation_label": "Profile navigation",
+    "labels": {
+      "about": "About",
+      "work": "Work Experience",
+      "edu": "Education",
+      "skills": "Skills",
+      "refs": "References"
+    },
+    "jobs": [
+      {
+        "heading": [
+          {
+            "text": "UI Developer "
+          },
+          {
+            "text": "Tragic Media INC",
+            "url": "https://tragic.media/home"
+          },
+          {
+            "text": " San Diego, CA (remote)"
+          }
+        ],
+        "dates": "June 2018 - August 2019",
+        "bullets": [
+          [
+            {
+              "text": " Constantly maintained client satisfaction, optimized several apps loading performance, typed well-documented tasks with understandable details, architected the login user flows, and created a reset password experience (TypeScript, Angular, JavaScript, Angular Material, Google Cloud)."
+            }
+          ],
+          [
+            {
+              "text": "* reference contact info upon request",
+              "style": "em"
+            }
+          ]
+        ]
+      },
+      {
+        "heading": [
+          {
+            "text": "Front-End Developer "
+          },
+          {
+            "text": "TrivNow",
+            "url": "https://trivnow.com/"
+          }
+        ],
+        "dates": "June - September 2016",
+        "bullets": [
+          [
+            {
+              "text": " I converted an ionic mobile app to a web application with angular.js and angular-material."
+            }
+          ],
+          [
+            {
+              "text": " I created a feature which uploaded large amounts of data by parsing an excel file."
+            }
+          ],
+          [
+            {
+              "text": " I had to re-write functions that were previously handled by cordova plugins."
+            }
+          ],
+          [
+            {
+              "text": "* reference contact info upon request",
+              "style": "em"
+            }
+          ]
+        ]
+      },
+      {
+        "heading": [
+          {
+            "text": "Front-End Developer "
+          },
+          {
+            "text": "The HQ",
+            "url": "https://thehq.io/"
+          },
+          {
+            "text": " - Mar Vista, CA"
+          }
+        ],
+        "dates": "2016",
+        "bullets": [
+          [
+            {
+              "text": " I built the front-end app structure of a buyer/seller baseball ticket platform with Angular.js."
+            }
+          ],
+          [
+            {
+              "text": " I worked with the back-end developer to connect features to services."
+            }
+          ],
+          [
+            {
+              "text": " Parsed a variety of data with javascript."
+            }
+          ],
+          [
+            {
+              "text": "* reference contact info upon request",
+              "style": "em"
+            }
+          ]
+        ]
+      },
+      {
+        "heading": [
+          {
+            "text": "Angular.js, Node.js, RoR Developer at "
+          },
+          {
+            "text": "Colab",
+            "url": "http://colab.la/"
+          },
+          {
+            "text": " - Hollywood, CA"
+          }
+        ],
+        "dates": "2015",
+        "bullets": [
+          [
+            {
+              "text": "Worked with Ruby on Rails team to create a crowdfunding web app "
+            },
+            {
+              "text": "Start Engine.",
+              "url": "https://www.startengine.com/"
+            }
+          ],
+          [
+            {
+              "text": " Created an interactive contact form with Node and Angular for PopQuiz.com"
+            }
+          ],
+          [
+            {
+              "text": " Developed the consumer splash page for the original AgePath.com"
+            }
+          ],
+          [
+            {
+              "text": "* reference contact info upon request",
+              "style": "em"
+            }
+          ]
+        ]
+      },
+      {
+        "heading": [
+          {
+            "text": " Web Developer (intern) at Pinwheels - San Francisco, CA"
+          }
+        ],
+        "dates": "2015",
+        "bullets": [
+          [
+            {
+              "text": " Created and pushed to repository on bitbucket."
+            }
+          ],
+          [
+            {
+              "text": " Built prototype front-end feature with google maps api and javascript."
+            }
+          ],
+          [
+            {
+              "text": " Maintained Positive Rapport with Pinwheels Founder Chad Nam."
+            }
+          ],
+          [
+            {
+              "text": "Designed map with data layers and Geojson. "
+            },
+            {
+              "text": "See Map",
+              "url": "http://www.ianposton.com/sf-map/index.html"
+            }
+          ],
+          [
+            {
+              "text": "* reference contact info upon request",
+              "style": "em"
+            }
+          ]
+        ]
+      },
+      {
+        "heading": [
+          {
+            "text": " Sole Proprietor | Custom Framing"
+          }
+        ],
+        "dates": "2010-2014",
+        "bullets": [
+          [
+            {
+              "text": " Crafted over 10,000 Handmade Frames / Archival Framing Expert."
+            }
+          ],
+          [
+            {
+              "text": " Craftsmanship Side Business Catering to Art Community."
+            }
+          ],
+          [
+            {
+              "text": " Obtain business through Sales, Marketing, Social Media & Networking."
+            }
+          ]
+        ]
+      }
+    ],
+    "education": [
+      {
+        "heading": "General Assembly | Santa Monica, California",
+        "dates": "2014-2015",
+        "description": "Twelve week accelerated course with a major focus on backend programming specifically Ruby on Rails. I built many projects deployed to heroku and pushed to github. I practiced test driven development and worked on projects with a team. While building other apps I learned to dissect the problem with pseudo code, wireframes, and user stories on pivotal tracker."
+      },
+      {
+        "heading": "Kittatinny Regional High School | New Jersey - NY",
+        "dates": "1994-1998",
+        "description": "Main fields of study were creative writing, computer lab, and, graphic arts."
+      }
+    ],
+    "skills": [
+      {
+        "title": "Front-End",
+        "items": [
+          {
+            "name": "HTML5/CSS3",
+            "experience": "5 years experience"
+          },
+          {
+            "name": "JavaScript",
+            "experience": "5 years experience"
+          },
+          {
+            "name": "Bootstrap",
+            "experience": "4 years experience"
+          },
+          {
+            "name": "Angular",
+            "experience": "4 years experience"
+          },
+          {
+            "name": "Angular-Material",
+            "experience": "3 year experience"
+          },
+          {
+            "name": "TypeScript",
+            "experience": "2 years experience"
+          }
+        ]
+      },
+      {
+        "title": "Back-End",
+        "items": [
+          {
+            "name": "Node.js",
+            "experience": "3 year experience"
+          },
+          {
+            "name": "Express",
+            "experience": "3 years experience"
+          },
+          {
+            "name": "API's",
+            "experience": "4 years experience"
+          },
+          {
+            "name": "GoogleCloud",
+            "experience": "1 year experience"
+          },
+          {
+            "name": "MongoDB",
+            "experience": "3 years experience"
+          },
+          {
+            "name": "Firebase",
+            "experience": "3 year experience"
+          }
+        ]
+      }
+    ],
+    "references": [
+      {
+        "author": "Joe Hanauer -- Accounts Manager at Colab.la",
+        "quote": "I'd recommend Ian as a Front-End Developer to anyone considering hiring. Ian owns all of the technical skills required to exceed in his job, but what I admired most from Ian during his time at Colab (and what separated him from the rest) was his ability to communicate with other team members, and specifically myself. Ian always gave clear expectations and delivered on his requirements without fail, and always goes the extra mile to ensure so. Whomever's considering hiring Ian should do so quickly-- his willingness to adapt, grow, and build great products is a breath of fresh air in an industry where it can be incredibly challenging to find people as committed as Ian is."
+      },
+      {
+        "author": "Amanda McGlothlin -- Cofounder, Chief Design Officer at the HQ",
+        "quote": "Ian is a great Front-End Web Developer, and I really enjoyed having him on the team. Working together on a big project with a tight deadline, he was always willing to step up to the challenge and jump in wherever he could provide the most value. He always has a great attitude and sense of humor. Definitely hope to work with him again"
+      }
+    ],
+    "download": {
+      "url": "Ian_Poston_resume_Aug_2019_b.docx",
+      "label": "Download resume (.docx)"
+    }
+  },
+  "contact": {
+    "labels": {
+      "name": "Name *",
+      "email": "Email *",
+      "message": "Message *"
+    },
+    "honeypot_label": "Keep this field blank",
+    "submit": "Submit",
+    "sending": "Sending…",
+    "success": "Thank you! Your message has been sent.",
+    "error": "Something went wrong. Please try again."
+  }
+}
