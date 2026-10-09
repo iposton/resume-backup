@@ -35,12 +35,18 @@ tabs.forEach((tab, index) => {
     if (next !== undefined) { event.preventDefault(); tabs[next].focus(); tabs[next].click(); }
   });
 });
+const header = document.querySelector('.mdl-layout__header');
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+}
+new ResizeObserver(updateHeaderHeight).observe(header);
+updateHeaderHeight();
 let scrollFrame;
 function scrollToTarget(target, animate) {
   cancelAnimationFrame(scrollFrame);
   const start = window.scrollY;
   const end = Math.max(0, Math.min(
-    target.getBoundingClientRect().top + start - 24,
+    target.getBoundingClientRect().top + start - header.getBoundingClientRect().height - 24,
     document.documentElement.scrollHeight - window.innerHeight
   ));
   if (!animate || reducedMotion.matches) { window.scrollTo(0, end); return; }
@@ -67,7 +73,11 @@ function syncHash(animate = false) {
     else link.removeAttribute('aria-current');
   });
   // Wait for the newly revealed panel to lay out before measuring its target.
-  requestAnimationFrame(() => scrollToTarget(target || document.getElementById(panelId), animate));
+  cancelAnimationFrame(scrollFrame);
+  requestAnimationFrame(() => {
+    if (!target || target === panel) window.scrollTo(0, 0);
+    else scrollToTarget(target, animate);
+  });
 }
 document.querySelectorAll('a.smooth, .mdl-layout__tab').forEach((link) => {
   link.addEventListener('click', (event) => {
@@ -113,7 +123,7 @@ document.querySelectorAll('[id^="accordion"]').forEach((accordion, index) => {
     animation.onfinish = () => { panel.hidden = !open; };
   });
 });
-const form = document.querySelector('form');
+const form = document.getElementById('_form_1029');
 form.addEventListener('submit', () => {
   const button = form.querySelector('button[type="submit"]');
   button.disabled = true;
@@ -124,8 +134,14 @@ window.addEventListener('pageshow', () => {
   button.disabled = false;
   button.querySelector('span').textContent = button.dataset.submitLabel;
 });
-const notice = document.querySelector('.form-messages');
+const notice = document.querySelector('.form-messages.success');
 if (notice) {
-  notice.setAttribute('role', 'status');
-  setTimeout(() => { notice.style.opacity = '0'; setTimeout(() => { notice.hidden = true; }, 500); }, 8000);
+  // Remove the result flag so refreshing does not replay a successful submission.
+  const url = new URL(window.location.href);
+  url.searchParams.delete('success');
+  history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+  setTimeout(() => {
+    notice.classList.add('is-leaving');
+    setTimeout(() => { notice.hidden = true; }, reducedMotion.matches ? 0 : 300);
+  }, 5300); // Five seconds visible after the 300ms entrance.
 }

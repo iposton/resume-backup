@@ -15,11 +15,11 @@ Use PHP rather than opening index.php directly or using a static server: the pag
 
 ## Changes
 
-The layout and interactions are implemented in css/styles.css and main.js. External Material Design Lite, jQuery UI, demo CSS, icon-font and Ladda dependencies have been removed from the page. The old Ladda/spin files remain as unused originals.
+The layout and interactions are implemented in css/styles.css and main.js. External Material Design Lite, jQuery UI, demo CSS, icon-font and Ladda dependencies have been removed from the page. Unused Ladda/spin files and the unlinked 2016/2017 resume documents have been removed. The resume download uses the June 2026 PDF.
 
 The page has responsive cards, compact navigation on Resume only, accessible tabs with arrow-key navigation, animated collapsible sections, animated scrolling within Resume and reduced-motion support. Without JavaScript all sections and accordion content remain readable.
 
-Contact fields use native required/email validation. Status messages and mailer redirects work locally and on HTTPS; mailer.php checks mail()'s result before reporting success. Sending email requires a configured PHP mail transport; the built-in preview server does not configure that for you. The avatar still loads from GitHub.
+Contact fields use native required/email validation. Status messages and mailer redirects work locally and on HTTPS; mailer.php checks mail()'s result before reporting success. Sending email requires a configured PHP mail transport; the built-in preview server does not configure that for you. The avatar loads locally from img/ian-headshot-fit-9-26.png.
 
 ## Browser checks
 
@@ -65,3 +65,15 @@ JSON requires double quotes, commas between items, and no trailing commas or com
 The HTML structure, tab/section IDs and navigation destinations remain in `index.php`; presentation stays in `css/styles.css`, and interactions stay in `main.js`. `mailer.php` still owns the recipient and mail delivery settings. The content file is public website copy, so do not put credentials or private notes in it.
 
 Validation completed: PHP/JavaScript syntax, JSON-driven rendering, preserved resume/accordion targets, inline links, escaped text and malformed-JSON handling. Visual browser verification remains manual.
+
+## Resume Bot (free resume matcher)
+
+The About page includes a question input, example questions and an answer panel. `resume-chat.js` matches questions locally against resume facts embedded from `content.json`. No model, API key, subscription, network request or chat storage is used. It handles employment years, employers, current role, projects, skills, education and the tech journey. Unknown questions get an explicit fallback rather than an invented answer.
+
+Edit `chat` for labels, sample questions and the journey answer. Edit `resume.jobs` for career facts; each job includes numeric `start_year` and `end_year` (use null for a current role). The resume data now reflects the June 2026 resume. The document download points to Ian_Poston_Resume_2026_June.pdf.
+
+Verified matcher responses for 2016 employers, current employment, journey, projects and unknown questions, plus PHP/JS syntax and rendered chat markup. Browser visual checks remain manual.
+
+## Skill cards and proficiency
+
+`resume.skills` contains three groups, including AI Tools. Each item has `name`, a six-digit hex `color`, and `proficiency`. Set `proficiency` to a number from 0 to 100 to show a green filled bar and percentage. For example: `"proficiency": 80`. A null value displays “Not rated yet” with a neutral track; no ratings are assumed. These are self-assessed scores. Colors use brand-inspired shades adjusted for readable white labels. The cards stack on narrow screens.

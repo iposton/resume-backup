@@ -5,28 +5,29 @@
   <meta charset="UTF-8">
   <title><?= escapeContent($content['site']['title']) ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css?v=4">
-  <script src="main.js?v=4" defer></script>
+  <link rel="stylesheet" href="css/styles.css?v=13">
+  <script src="resume-chat.js?v=5" defer></script>
+  <script src="main.js?v=10" defer></script>
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title"><?= escapeContent($content['site']['heading']) ?></span>
-    </div>
+      <a class="mdl-layout-title" href="<?= contentUrl($content['site']['home_url']) ?>"><?= escapeContent($content['site']['header_heading']) ?></a>
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect" aria-label="<?= escapeContent($content['resume']['navigation_label']) ?>">
       <?php foreach (['about', 'resume', 'contact'] as $tab): ?>
       <a href="#scroll-tab-<?= $tab ?>" class="mdl-layout__tab<?= $tab === 'about' ? ' is-active' : '' ?>"><?= escapeContent($content['site']['tabs'][$tab]) ?></a>
       <?php endforeach; ?>
     </div>
+    </div>
   </header>
   <?php $status = $_GET['success'] ?? null; if ($status === '1' || $status === '-1'): ?>
-  <div id="div1" class="form-messages <?= $status === '1' ? 'success' : 'error' ?>"><?= escapeContent($content['contact'][$status === '1' ? 'success' : 'error']) ?></div>
+  <div id="div1" role="<?= $status === '1' ? 'status' : 'alert' ?>" class="form-messages <?= $status === '1' ? 'success' : 'error' ?>"><?= escapeContent($content['contact'][$status === '1' ? 'success' : 'error']) ?></div>
   <?php endif; ?>
   <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-about">
       <div class="page-content"><div class="mdl-grid"><div class="container mdl-shadow--4dp">
-        <img src="<?= contentUrl($content['site']['avatar']['url']) ?>" alt="<?= escapeContent($content['site']['avatar']['alt']) ?>">
+        <a class="profile-avatar" href="<?= contentUrl($content['site']['home_url']) ?>"><img src="<?= contentUrl($content['site']['avatar']['url']) ?>" alt="<?= escapeContent($content['site']['avatar']['alt']) ?>"></a>
         <h2><?= escapeContent($content['site']['heading']) ?></h2>
         <?php $accordionIndex = 0; foreach ($content['about']['blocks'] as $block): ?>
           <?php if ($block['type'] === 'paragraph'): ?>
@@ -43,6 +44,27 @@
           <?php if ($accordionIndex < 3): ?><br><?php endif; ?>
           <?php endif; ?>
         <?php endforeach; ?>
+        <section class="ian-chat" aria-labelledby="ian-chat-title">
+          <h3 id="ian-chat-title"><?= escapeContent($content['chat']['title']) ?></h3>
+          <p class="ian-chat-description"><?= escapeContent($content['chat']['description']) ?></p>
+          <div class="ian-chat-examples">
+            <?php foreach ($content['chat']['examples'] as $example): ?>
+            <button type="button" class="ian-chat-example"><?= escapeContent($example) ?></button>
+            <?php endforeach; ?>
+          </div>
+          <div id="ian-chat-log" class="ian-chat-log" role="log" aria-live="polite" aria-relevant="additions" tabindex="0">
+            <p class="ian-chat-answer"><?= escapeContent($content['chat']['welcome']) ?></p>
+          </div>
+          <form id="ian-chat-form">
+            <label for="ian-chat-question"><?= escapeContent($content['chat']['label']) ?></label>
+            <div class="ian-chat-controls">
+              <input id="ian-chat-question" type="text" maxlength="500" required placeholder="<?= escapeContent($content['chat']['placeholder']) ?>" autocomplete="off">
+              <button class="mdl-button" type="submit"><?= escapeContent($content['chat']['submit']) ?></button>
+            </div>
+          </form>
+          <noscript>Enable JavaScript to ask questions, or read the Resume tab.</noscript>
+        </section>
+        <script id="ian-chat-data" type="application/json"><?= json_encode(['resume' => $content['resume'], 'about' => $content['about'], 'chat' => $content['chat']], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_THROW_ON_ERROR) ?></script>
       </div></div></div>
     </section>
     <section class="mdl-layout__tab-panel" id="scroll-tab-resume">
@@ -86,13 +108,30 @@
           </section>
           <section id="skills">
             <header class="skills-title"><h3><?= escapeContent($content['resume']['labels']['skills']) ?></h3></header>
+            <p class="skills-caption"><?= escapeContent($content['resume']['skills_caption']) ?></p>
             <div class="mdl-grid skills-zone">
               <?php foreach ($content['resume']['skills'] as $group): ?>
-              <div class="section__text mdl-cell">
+              <div class="skill-card">
                 <h4><?= escapeContent($group['title']) ?></h4>
-                <ul>
-                  <?php foreach ($group['items'] as $skill): ?>
-                  <li><strong><?= escapeContent($skill['name']) ?></strong> - <?= escapeContent($skill['experience']) ?></li>
+                <ul class="skill-list">
+                  <?php foreach ($group['items'] as $skill):
+                    $rating = $skill['proficiency'] ?? null;
+                    $rating = is_numeric($rating) ? max(0, min(100, (float) $rating)) : null;
+                    $color = preg_match('/^#[0-9a-f]{6}$/i', $skill['color'] ?? '') ? $skill['color'] : '#475569';
+                  ?>
+                  <li class="skill-item">
+                    <div class="skill-labels">
+                      <span class="skill-pill" style="--skill-color: <?= escapeContent($color) ?>"><?= escapeContent($skill['name']) ?></span>
+                      <span class="skill-rating"><?= $rating === null ? escapeContent($content['resume']['skills_unrated']) : escapeContent((string) $rating) . '%' ?></span>
+                    </div>
+                    <?php if ($rating !== null): ?>
+                    <div class="skill-meter" role="meter" aria-label="<?= escapeContent($skill['name']) ?>" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?= $rating ?>" aria-valuetext="<?= $rating ?>% self-assessed proficiency">
+                      <span style="width: <?= $rating ?>%"></span>
+                    </div>
+                    <?php else: ?>
+                    <div class="skill-meter is-unrated" aria-hidden="true"></div>
+                    <?php endif; ?>
+                  </li>
                   <?php endforeach; ?>
                 </ul>
               </div>
