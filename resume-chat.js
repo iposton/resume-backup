@@ -6,6 +6,16 @@ function answerResumeQuestion(question, data) {
   const jobs = data.resume.jobs;
   const describeJob = job => `${partsText(job.heading)} (${job.dates}).`;
   if (!q) return data.chat.empty;
+  const recommendationsQuestion = /\b(recommendation|recommendations|reference|references|testimonial|testimonials|teamwork|personality|reliable|reliability|colleague|colleagues)\b/.test(q)
+    || /\blike\s+to\s+work\s+with\b/.test(q)
+    || /\b(work|working|collaborate|collaborating)\s+with\s+(ian|him)\b/.test(q)
+    || /\b(team|communication|attitude)\b/.test(q);
+  if (recommendationsQuestion) {
+    const references = data.resume.references || [];
+    if (!references.length) return data.chat.unknown;
+    return references.map(reference => reference.summary || `${reference.author}: “${reference.quote}”`).join('\n\n');
+  }
+
   if (/\b(journey|background|story|started|start|became)\b/.test(q)) return data.chat.journey;
   const years = [...q.matchAll(/\b(?:19|20)\d{2}\b/g)].map(match => Number(match[0]));
   if (years.length && /\b(work|worked|working|job|jobs|employer|experience|company|companies|role|roles|where|doing)\b/.test(q)) {

@@ -1,4 +1,11 @@
-<?php require __DIR__ . '/content.php'; ?>
+<?php
+if (!is_readable(__DIR__ . '/content.php')) {
+    http_response_code(500);
+    header('Content-Type: text/plain; charset=UTF-8');
+    exit('Missing page dependency: upload content.php and content.json into the same folder as index.php.');
+}
+require __DIR__ . '/content.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +13,7 @@
   <title><?= escapeContent($content['site']['title']) ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css?v=13">
-  <script src="resume-chat.js?v=5" defer></script>
+  <script src="resume-chat.js?v=6" defer></script>
   <script src="main.js?v=10" defer></script>
 </head>
 <body>
@@ -142,8 +149,9 @@
             <header><h3><?= escapeContent($content['resume']['labels']['refs']) ?></h3></header>
             <hr><div>
               <?php foreach ($content['resume']['references'] as $reference): ?>
-              <h6><?= escapeContent($reference['author']) ?></h6>
-              <blockquote><?= escapeContent($reference['quote']) ?></blockquote><hr>
+              <h6><?php if (!empty($reference['url'])): ?><a href="<?= contentUrl($reference['url']) ?>" target="_blank" rel="noopener noreferrer"><?= escapeContent($reference['author']) ?></a><?php else: ?><?= escapeContent($reference['author']) ?><?php endif; ?></h6>
+              <?php if (!empty($reference['date'])): ?><p class="reference-meta"><?= escapeContent($reference['date']) ?> · <?= escapeContent($reference['relationship'] ?? '') ?></p><?php endif; ?>
+              <blockquote><?php foreach (preg_split("/\n\s*\n/", $reference['quote']) as $paragraph): ?><p><?= escapeContent($paragraph) ?></p><?php endforeach; ?></blockquote><hr>
               <?php endforeach; ?>
             </div>
           </section>
